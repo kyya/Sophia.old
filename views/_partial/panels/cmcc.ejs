@@ -1,0 +1,18 @@
+<div class="mdui-panel mdui-panel-gapless" mdui-panel>
+  <div class="mdui-panel-item">
+    <div class="mdui-panel-item-header">
+      <div class="mdui-panel-item-title">CMCCHelper</div>
+      <div class="mdui-panel-item-summary">正常</div>
+      <i class="mdui-panel-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+    </div>
+    <div class="mdui-panel-item-body">
+      <p><span class="item-title">最后更新(UTC)</span><%- lastBuildDate %></p>
+      <p><span class="item-title">消费 / 余额</span><%- MoneyUsed %> / <%- MoneyLeft %> 元</p>
+      <p><span class="item-title">通用流量</span>通用 <%- GprsUsed %> MB / <%- GprsTotal %> MB</p>
+      <div class="mdui-progress">
+        <div class="mdui-progress-determinate" style="width: <%- GprsUsedPer %>;"></div>
+      </div>
+      <button class="mdui-btn mdui-ripple">更新数据</button>
+    </div>
+  </div>
+</div>
