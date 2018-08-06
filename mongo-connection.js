@@ -1,7 +1,13 @@
 const mongoose = require('mongoose')
 
-// connect('mongodb://localhost/cmcc')
+const config = { useNewUrlParser: true }
 
-const connection = mongoose.createConnection('mongodb://localhost/cmcc');
+const DBS = {
+    cmcc: 'mongodb://cmcc:kikookik@dev.kiko.space:27017/cmcc',
+    friends: 'mongodb://Anapopo:kikookik@dev.kiko.space:27017/friends'
+}
 
-module.exports = connection
+function getConnection(DBS_NAME) {
+    return mongoose.createConnection(DBS_NAME, config);
+}
+module.exports = { DBS, getConnection }

@@ -3,12 +3,11 @@ const static = require('koa-static');
 const render = require('koa-ejs');
 const path = require('path');
 const app = new Koa();
+const config = require('./config')
 const router = require('./router');
 
 const logger = require('./utils/logger.js');
 const onerror = require('./middleware/onerror');
-
-logger.info("Sophia Start! Listening on http://localhost:9000");
 
 // error
 app.use(onerror);
@@ -27,4 +26,6 @@ app
   .use(router.routes())
   .use(router.allowedMethods());
 
-app.listen(9000);
+app.listen(config.port, ()=>{
+  logger.info(`Sophia Start! Listening on http://localhost:${config.port}`);
+});
