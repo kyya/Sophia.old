@@ -8,7 +8,7 @@ const router = require('./router');
 const logger = require('./utils/logger.js');
 const onerror = require('./middleware/onerror');
 
-logger.info("Moa Start!");
+logger.info("Sophia Start! Listening on http://localhost:9000");
 
 // error
 app.use(onerror);

@@ -6,13 +6,18 @@
       <i class="mdui-panel-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
     </div>
     <div class="mdui-panel-item-body">
-      <p><span class="item-title">最后更新(UTC)</span><%- lastBuildDate %></p>
-      <p><span class="item-title">消费 / 余额</span><%- MoneyUsed %> / <%- MoneyLeft %> 元</p>
-      <p><span class="item-title">通用流量</span>通用 <%- GprsUsed %> MB / <%- GprsTotal %> MB</p>
+      <p><span class="item-title">最后更新</span><%- QueryTime %></p>
+      <p><span class="item-title">消费</span><span class="mdui-text-color-red">-¥ <%- MoneyUsed %></span> <span class="mdui-text-color-green">¥ <%- MoneyLeft %> Left</span></p>
+      <p><span class="item-title">通用流量</span><%- GprsUsed %> MB / <%- GprsTotal %> MB</p>
       <div class="mdui-progress">
         <div class="mdui-progress-determinate" style="width: <%- GprsUsedPer %>;"></div>
       </div>
-      <button class="mdui-btn mdui-ripple">更新数据</button>
+      <button id="cmcc_update" class="mdui-btn mdui-ripple">更新数据</button>
     </div>
   </div>
 </div>
+<script>
+document.querySelector('#cmcc_update').onclick = () => {
+  fetch('/api/cmcc/update').then(res=>res.text()).then(body=>console.log(body))
+}
+</script>
