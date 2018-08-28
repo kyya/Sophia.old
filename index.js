@@ -1,4 +1,5 @@
 const Koa = require('koa');
+const cors = require('@koa/cors')
 const static = require('koa-static');
 const render = require('koa-ejs');
 const path = require('path');
@@ -8,7 +9,7 @@ const router = require('./router');
 
 const logger = require('./utils/logger.js');
 const onerror = require('./middleware/onerror');
-
+app.use(cors());
 // error
 app.use(onerror);
 // 模板引擎
